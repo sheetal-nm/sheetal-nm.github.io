@@ -1,542 +1,185 @@
-<!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sheetal Malgaonkar | Senior UI/UX Designer</title>
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Tailwind Config for Custom Fonts and Colors -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        syne: ['Syne', 'sans-serif'],
-                        inter: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            DEFAULT: '#8b5cf6', // Violet-500
-                            light: '#a78bfa',
-                            dark: '#6d28d9',
-                        },
-                        accent: '#06b6d4', // Cyan-500
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        /* Custom Styles & Animations */
-        body {
-            background-color: #050505;
-        }
-
-        /* Ambient Background Glow */
-        .ambient-glow {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            overflow: hidden;
-            z-index: -1;
-            pointer-events: none;
-        }
-        .glow-blob {
-            position: absolute;
-            filter: blur(120px);
-            opacity: 0.15;
-            border-radius: 50%;
-            animation: float 20s infinite ease-in-out alternate;
-        }
-        .glow-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: #8b5cf6; }
-        .glow-2 { bottom: -10%; right: -10%; width: 40vw; height: 40vw; background: #06b6d4; animation-delay: -5s; }
-
-        @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(10%, 10%) scale(1.2); }
-        }
-
-        /* Scroll Reveal Utility */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Text Gradient */
-        .text-gradient {
-            background: linear-gradient(135deg, #fff 0%, #a78bfa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        /* Glass Pill Nav */
-        .nav-glass {
-            background: rgba(20, 20, 20, 0.6);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #050505; }
-        ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #555; }
-
-        /* Card Hover Effects */
-        .bento-card {
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
-        }
-        .bento-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(139, 92, 246, 0.4);
-        }
-        .bento-img {
-            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .bento-card:hover .bento-img {
-            transform: scale(1.05);
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0d0d12" />
+  <meta name="description" content="Sheetal Malgaonkar — UI/UX & Frontend Designer based in Mumbai." />
+  <title>Sheetal Malgaonkar — UI/UX Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css" />
 </head>
-<body class="text-neutral-300 font-inter antialiased selection:bg-brand selection:text-white">
+<body>
+  <div class="grain"></div>
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+  <div class="progress"><span></span></div>
 
-    <!-- Ambient Background -->
-    <div class="ambient-glow">
-        <div class="glow-blob glow-1"></div>
-        <div class="glow-blob glow-2"></div>
+  <header class="site-header">
+    <div class="shell nav">
+      <a class="brand magnetic" href="#top">
+        <span class="brand-mark">SM</span>
+        <span class="brand-text">Sheetal<br>Malgaonkar</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#work">Work</a><a href="#about">About</a><a href="#experience">Experience</a><a href="#visual">Visual</a>
+      </nav>
+      <a class="status magnetic" href="#contact"><i></i> Open to opportunities</a>
+      <button class="menu-btn" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span></button>
     </div>
+  </header>
 
-    <!-- Floating Navigation -->
-    <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[90%] max-w-2xl transition-all duration-300">
-        <div class="nav-glass rounded-full px-6 py-3 flex items-center justify-between shadow-2xl">
-            <a href="#" class="font-syne font-bold text-xl text-white tracking-tight">
-                SHEETAL<span class="text-brand">.</span>
-            </a>
-            <ul class="hidden md:flex space-x-8 text-sm font-medium">
-                <li><a href="#work" class="hover:text-brand transition-colors">Projects</a></li>
-                <li><a href="#graphics" class="hover:text-brand transition-colors">Graphics</a></li>
-                <li><a href="#experience" class="hover:text-brand transition-colors">Experience</a></li>
-            </ul>
-            <a href="#contact" class="hidden md:inline-block px-5 py-2 rounded-full bg-white text-black font-semibold text-sm hover:bg-brand hover:text-white transition-all">
-                Let's Talk
-            </a>
-            <!-- Mobile Menu Toggle -->
-            <button id="mobile-menu-btn" class="md:hidden text-white text-xl">
-                <i class="fa-solid fa-bars"></i>
-            </button>
+  <main id="top">
+    <section class="hero">
+      <div class="hero-grid-bg"></div>
+      <div class="hero-orb orb-one" data-parallax="-0.08"></div>
+      <div class="hero-orb orb-two" data-parallax="0.12"></div>
+      <div class="shell hero-inner">
+        <div class="hero-meta reveal">
+          <p>UI/UX + FRONTEND DESIGNER</p><p>MUMBAI · 6+ YEARS EXPERIENCE</p>
         </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden absolute top-full mt-4 left-0 w-full nav-glass rounded-2xl p-4 flex flex-col space-y-4 text-center border border-white/10">
-            <a href="#work" class="hover:text-brand" onclick="toggleMobileMenu()">Projects</a>
-            <a href="#graphics" class="hover:text-brand" onclick="toggleMobileMenu()">Graphics</a>
-            <a href="#experience" class="hover:text-brand" onclick="toggleMobileMenu()">Experience</a>
-            <a href="#contact" class="text-brand font-semibold" onclick="toggleMobileMenu()">Let's Talk</a>
+        <div class="hero-title-wrap">
+          <h1>
+            <span class="line"><span>I DESIGN</span></span>
+            <span class="line outline"><span>CLEAR DIGITAL</span></span>
+            <span class="line right"><span>EXPERIENCES</span></span>
+            <span class="line right accent"><span>THAT SHIP.</span></span>
+          </h1>
+          <div class="hero-stamp" data-parallax="0.15"><span class="stamp-copy">UI/UX · FRONTEND · PRODUCT · </span><b>↘</b></div>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="min-h-screen flex items-center pt-20 pb-10 px-6 sm:px-12 max-w-7xl mx-auto" id="home">
-        <div class="w-full">
-            <div class="reveal">
-                <div class="inline-block px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm text-sm font-medium text-brand-light mb-6">
-                    <i class="fa-solid fa-sparkles mr-2"></i> Open for new opportunities
-                </div>
-                <h1 class="font-syne text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.1] mb-6 text-white">
-                    Designing <span class="text-gradient">intuitive</span><br />
-                    digital experiences.
-                </h1>
-                <p class="text-lg sm:text-xl text-neutral-400 max-w-2xl mb-10 leading-relaxed">
-                    I'm <strong>Sheetal Malgaonkar</strong>, a Senior UI/UX Designer currently shaping interfaces at Softlabs Group. Specialized in translating complex problems into elegant, user-centric designs using HTML, CSS, Bootstrap, and jQuery.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#work" class="px-8 py-4 rounded-full bg-brand text-white font-semibold hover:bg-brand-dark transition-colors flex items-center">
-                        View Work <i class="fa-solid fa-arrow-right ml-2"></i>
-                    </a>
-                    <a href="https://linkedin.com" target="_blank" class="px-8 py-4 rounded-full border border-white/20 text-white font-semibold hover:bg-white/10 transition-colors flex items-center">
-                        <i class="fa-brands fa-linkedin text-xl mr-2"></i> Connect
-                    </a>
-                </div>
-            </div>
+        <div class="hero-bottom reveal">
+          <p>I’m Sheetal Malgaonkar — a UI/UX and Frontend Designer who turns complex requirements into responsive, usable interfaces and helps bridge the gap between design and implementation.</p>
+          <a class="hero-cta magnetic" href="#work"><span>Explore selected work</span><b>↘</b></a>
         </div>
+      </div>
     </section>
 
-    <!-- Web Projects (Bento Grid) -->
-    <section class="py-24 px-6 sm:px-12 max-w-7xl mx-auto" id="work">
-        <div class="reveal mb-16">
-            <h2 class="font-syne text-4xl sm:text-5xl font-bold text-white mb-4">Selected Work</h2>
-            <p class="text-neutral-400">A showcase of user interfaces and web experiences.</p>
+    <section class="ticker"><div class="ticker-track">
+      <span>UI DESIGN</span><b>✦</b><span>UX DESIGN</span><b>✦</b><span>RESPONSIVE WEB</span><b>✦</b><span>FIGMA</span><b>✦</b><span>FRONTEND</span><b>✦</b><span>PROTOTYPING</span><b>✦</b>
+      <span>UI DESIGN</span><b>✦</b><span>UX DESIGN</span><b>✦</b><span>RESPONSIVE WEB</span><b>✦</b><span>FIGMA</span><b>✦</b><span>FRONTEND</span><b>✦</b><span>PROTOTYPING</span><b>✦</b>
+    </div></section>
+
+    <section class="section work" id="work">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div><span class="section-index">02</span><p class="eyebrow">SELECTED WORK</p></div>
+          <h2>Projects that show how I think, design and deliver.</h2>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Project 1 -->
-            <a href="https://www.softlabsgroup.com/" target="_blank" class="bento-card group reveal relative rounded-3xl overflow-hidden bg-neutral-900 border border-white/5 aspect-[4/3] flex flex-col justify-end">
-                <div class="absolute inset-0 w-full h-full">
-                    <img src="assets/img/softlabs-group.png" alt="Softlabs Corporate" class="bento-img w-full h-full object-cover opacity-60 group-hover:opacity-80">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
-                </div>
-                <div class="relative p-6">
-                    <span class="inline-block px-3 py-1 bg-brand/20 text-brand-light text-xs font-semibold rounded-full mb-3 backdrop-blur-md">Live Site</span>
-                    <h3 class="font-syne text-xl sm:text-2xl font-bold text-white mb-1">Softlabs Global</h3>
-                    <p class="text-neutral-300 text-sm flex items-center">Corporate Website <i class="fa-solid fa-arrow-up-right-from-square ml-2 text-xs text-brand"></i></p>
-                </div>
+        <div class="featured-projects">
+          <article class="project reveal">
+            <a class="project-media tilt" href="https://www.softlabsgroup.com/" target="_blank" rel="noreferrer">
+              <img src="assets/img/softlabs-group.png" alt="Softlabs Global website"><div class="media-shade"></div>
+              <div class="project-label"><span>01</span><span>Featured / Live</span></div><div class="view-pill">VIEW LIVE ↗</div>
             </a>
+            <div class="project-info"><div><h3>Softlabs Global</h3><p>Corporate website redesign focused on structure, responsive behaviour, visual refresh and brand consistency.</p></div><div class="tags"><span>UI/UX</span><span>WEB</span><span>RESPONSIVE</span></div></div>
+          </article>
 
-            <!-- Project 2 -->
-            <div class="bento-card group reveal relative rounded-3xl overflow-hidden bg-neutral-900 border border-white/5 aspect-[4/3] flex flex-col justify-end" style="transition-delay: 100ms;">
-                <div class="absolute inset-0 w-full h-full">
-                    <img src="assets/img/navtatva.png" alt="Navtatva" class="bento-img w-full h-full object-cover opacity-60 group-hover:opacity-80">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
-                </div>
-                <div class="relative p-6">
-                    <h3 class="font-syne text-xl sm:text-2xl font-bold text-white mb-1">Navtatva eCommerce</h3>
-                    <p class="text-neutral-400 text-sm">Softlabs Group</p>
-                </div>
+          <article class="project reveal">
+            <div class="project-media tilt tone-violet">
+              <img src="assets/img/navtatva.png" alt="Navtatva eCommerce interface"><div class="media-shade"></div>
+              <div class="project-label"><span>02</span><span>eCommerce</span></div><div class="view-pill static">CASE STUDY SOON</div>
             </div>
+            <div class="project-info"><div><h3>Navtatva eCommerce</h3><p>Customer-facing eCommerce interface work created while working with Softlabs Group.</p></div><div class="tags"><span>PRODUCT UI</span><span>ECOMMERCE</span></div></div>
+          </article>
 
-            <!-- Project 3 -->
-            <div class="bento-card group reveal relative rounded-3xl overflow-hidden bg-neutral-900 border border-white/5 aspect-[4/3] flex flex-col justify-end" style="transition-delay: 200ms;">
-                <div class="absolute inset-0 w-full h-full">
-                    <img src="assets/img/EZbudget.png" alt="EZbudget" class="bento-img w-full h-full object-cover opacity-60 group-hover:opacity-80">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
-                </div>
-                <div class="relative p-6">
-                    <h3 class="font-syne text-xl sm:text-2xl font-bold text-white mb-1">EZbudget</h3>
-                    <p class="text-neutral-400 text-sm">Thinkinno</p>
-                </div>
+          <article class="project reveal">
+            <div class="project-media tilt tone-blue">
+              <img src="assets/img/EZbudget.png" alt="EZbudget interface"><div class="media-shade"></div>
+              <div class="project-label"><span>03</span><span>Finance UI</span></div><div class="view-pill static">CASE STUDY SOON</div>
             </div>
+            <div class="project-info"><div><h3>EZbudget</h3><p>Interface design for a budgeting product developed during my time at Thinkinno.</p></div><div class="tags"><span>UI/UX</span><span>DASHBOARD</span></div></div>
+          </article>
 
-            <!-- Project 4 -->
-            <a href="https://drumeshkhanna.in/index.php" target="_blank" class="bento-card group reveal relative rounded-3xl overflow-hidden bg-neutral-900 border border-white/5 aspect-[4/3] flex flex-col justify-end">
-                <div class="absolute inset-0 w-full h-full">
-                    <img src="assets/img/drumeshKhanna.png" alt="Healthcare" class="bento-img w-full h-full object-cover opacity-60 group-hover:opacity-80">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
-                </div>
-                <div class="relative p-6">
-                    <span class="inline-block px-3 py-1 bg-brand/20 text-brand-light text-xs font-semibold rounded-full mb-3 backdrop-blur-md">Live Site</span>
-                    <h3 class="font-syne text-xl sm:text-2xl font-bold text-white mb-1 flex items-center justify-between">Healthcare Portal <i class="fa-solid fa-arrow-up-right-from-square text-sm text-brand"></i></h3>
-                    <p class="text-neutral-400 text-sm">I9innovations</p>
-                </div>
-            </a>
-
-            <!-- Project 5 -->
-            <div class="bento-card group reveal relative rounded-3xl overflow-hidden bg-neutral-900 border border-white/5 aspect-[4/3] flex flex-col justify-end" style="transition-delay: 100ms;">
-                <div class="absolute inset-0 w-full h-full">
-                    <img src="assets/img/cargo-tracker.png" alt="Cargo Tracker"  class="bento-img w-full h-full object-cover opacity-60 group-hover:opacity-80">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
-                </div>
-                <div class="relative p-6">
-                    <h3 class="font-syne text-xl sm:text-2xl font-bold text-white mb-1">Cargo Tracker</h3>
-                    <p class="text-neutral-400 text-sm">Thinkinno</p>
-                </div>
+          <article class="project reveal">
+            <div class="project-media tilt tone-coral">
+              <img src="assets/img/cargo-tracker.png" alt="Cargo Tracker interface"><div class="media-shade"></div>
+              <div class="project-label"><span>04</span><span>Tracking Product</span></div><div class="view-pill static">PROJECT DETAILS</div>
             </div>
+            <div class="project-info"><div><h3>Cargo Tracker</h3><p>UI work for a logistics and cargo-tracking experience created at Thinkinno.</p></div><div class="tags"><span>WEB APP</span><span>UI DESIGN</span></div></div>
+          </article>
 
-            <!-- Project 6 -->
-            <div class="bento-card group reveal relative rounded-3xl overflow-hidden bg-neutral-900 border border-white/5 aspect-[4/3] flex flex-col justify-end" style="transition-delay: 200ms;">
-                <div class="absolute inset-0 w-full h-full">
-                    <img src="assets/img/Nutricharge_offers.png" alt="Nutricharge Offers" class="bento-img w-full h-full object-cover opacity-60 group-hover:opacity-80">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
-                </div>
-                <div class="relative p-6">
-                    <h3 class="font-syne text-xl sm:text-2xl font-bold text-white mb-1">Nutricharge Offers</h3>
-                    <p class="text-neutral-400 text-sm">Thinkinno</p>
-                </div>
+          <article class="project reveal">
+            <div class="project-media tilt tone-green">
+              <img src="assets/img/northstar.png" alt="NorthStar HRMS interface"><div class="media-shade"></div>
+              <div class="project-label"><span>05</span><span>HRMS</span></div><div class="view-pill static">PROJECT DETAILS</div>
             </div>
-
-            <!-- Project 7 -->
-            <div class="bento-card group reveal relative rounded-3xl overflow-hidden bg-neutral-900 border border-white/5 aspect-[4/3] flex flex-col justify-end">
-                <div class="absolute inset-0 w-full h-full">
-                    <img src="assets/img/northstar.png" alt="NorthStar" class="bento-img w-full h-full object-cover opacity-60 group-hover:opacity-80">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
-                </div>
-                <div class="relative p-6">
-                    <h3 class="font-syne text-xl sm:text-2xl font-bold text-white mb-1">NorthStar HRMS</h3>
-                    <p class="text-neutral-400 text-sm">Thinkinno</p>
-                </div>
-            </div>
-
-            <!-- Project 8 -->
-            <div class="bento-card group reveal relative rounded-3xl overflow-hidden bg-neutral-900 border border-white/5 aspect-[4/3] flex flex-col justify-end" style="transition-delay: 100ms;">
-                <div class="absolute inset-0 w-full h-full">
-                    <img src="assets/img/bankersGPS.png" alt="bankersGPS"  class="bento-img w-full h-full object-cover opacity-60 group-hover:opacity-80">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
-                </div>
-                <div class="relative p-6">
-                    <h3 class="font-syne text-xl sm:text-2xl font-bold text-white mb-1">bankersGPS</h3>
-                    <p class="text-neutral-400 text-sm">Thinkinno</p>
-                </div>
-            </div>
-
-            <!-- Project 9 -->
-            <div class="bento-card group reveal relative rounded-3xl overflow-hidden bg-neutral-900 border border-white/5 aspect-[4/3] flex flex-col justify-end" style="transition-delay: 200ms;">
-                <div class="absolute inset-0 w-full h-full">
-                    <img src="assets/img/budget-playbook.png" alt="Budget Playbook"  class="bento-img w-full h-full object-cover opacity-60 group-hover:opacity-80">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
-                </div>
-                <div class="relative p-6">
-                    <h3 class="font-syne text-xl sm:text-2xl font-bold text-white mb-1">Budget Playbook</h3>
-                    <p class="text-neutral-400 text-sm">Thinkinno</p>
-                </div>
-            </div>
+            <div class="project-info"><div><h3>NorthStar HRMS</h3><p>Human-resource management interface work with emphasis on clarity and information-heavy workflows.</p></div><div class="tags"><span>HRMS</span><span>PRODUCT UI</span></div></div>
+          </article>
         </div>
+
+        <div class="archive reveal">
+          <div class="archive-title"><span class="section-index">02B</span><p class="eyebrow">MORE PRODUCT WORK</p></div>
+          <div class="archive-grid">
+            <article class="mini-project"><div class="mini-img"><img src="assets/img/Nutricharge_offers.png" alt="Nutricharge Offers"></div><div><h4>Nutricharge Offers</h4><p>Thinkinno</p></div></article>
+            <article class="mini-project"><div class="mini-img"><img src="assets/img/bankersGPS.png" alt="bankersGPS"></div><div><h4>bankersGPS</h4><p>Thinkinno</p></div></article>
+            <article class="mini-project"><div class="mini-img"><img src="assets/img/budget-playbook.png" alt="Budget Playbook"></div><div><h4>Budget Playbook</h4><p>Thinkinno</p></div></article>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <!-- Graphic Design Gallery -->
-    <section class="py-24 px-6 sm:px-12 max-w-7xl mx-auto" id="graphics">
-        <div class="reveal flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-            <div>
-                <h2 class="font-syne text-4xl sm:text-5xl font-bold text-white mb-4">Graphic & Print Media</h2>
-                <p class="text-neutral-400">Visual Branding, Brochures, and Marketing Collateral.</p>
-            </div>
-            <p class="text-sm text-neutral-500 flex items-center"><i class="fa-regular fa-image mr-2"></i> Click images to enlarge</p>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <!-- Graphic 1 -->
-            <div class="reveal bento-card cursor-pointer group rounded-3xl overflow-hidden bg-neutral-900 border border-white/5 aspect-square relative" 
-                 onclick="openModal('assets/img/brochure.jpg', 'Brochure Design')">
-                <img src="assets/img/brochure.jpg" alt="Brochure Design" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100">
-                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center backdrop-blur-sm">
-                    <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mb-3">
-                        <i class="fa-solid fa-expand text-white"></i>
-                    </div>
-                    <h4 class="font-syne font-bold text-white text-xl">Brand Brochure</h4>
-                    <p class="text-neutral-300 text-sm">Thinkinno Branding</p>
-                </div>
-            </div>
-
-            <!-- Graphic 2 -->
-            <div class="reveal bento-card cursor-pointer group rounded-3xl overflow-hidden bg-neutral-900 border border-white/5 aspect-square relative" 
-                 onclick="openModal('assets/img/booklet-frontBack.png', 'Leadvictor Brochure')">
-                <img src="assets/img/booklet-frontBack.png" alt="Leadvictor Brochure" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100">
-                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center backdrop-blur-sm">
-                    <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mb-3">
-                        <i class="fa-solid fa-expand text-white"></i>
-                    </div>
-                    <h4 class="font-syne font-bold text-white text-xl">Leadvictor Booklet</h4>
-                    <p class="text-neutral-300 text-sm">Thinkinno</p>
-                </div>
-            </div>
-
-            <!-- Graphic 3 -->
-            <div class="reveal bento-card cursor-pointer group rounded-3xl overflow-hidden bg-neutral-900 border border-white/5 aspect-square relative" 
-                 onclick="openModal('assets/img/standee-thinkinno.png', 'Thinkinno Standee')">
-                <img src="assets/img/standee-thinkinno.png" alt="Thinkinno Standee" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100">
-                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center backdrop-blur-sm">
-                    <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mb-3">
-                        <i class="fa-solid fa-expand text-white"></i>
-                    </div>
-                    <h4 class="font-syne font-bold text-white text-xl">Exhibition Standee</h4>
-                    <p class="text-neutral-300 text-sm">Thinkinno</p>
-                </div>
-            </div>
-
-            <!-- Graphic 4 -->
-            <div class="reveal bento-card cursor-pointer group rounded-3xl overflow-hidden bg-neutral-900 border border-white/5 aspect-square relative" 
-                 onclick="openModal('assets/img/digicard-socialmedia.png', 'Social Media Post')">
-                <img src="assets/img/digicard-socialmedia.png" alt="Social Media Post" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100 object-top">
-                <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center backdrop-blur-sm">
-                    <div class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center mb-3">
-                        <i class="fa-solid fa-expand text-white"></i>
-                    </div>
-                    <h4 class="font-syne font-bold text-white text-xl">Social Media Kit</h4>
-                    <p class="text-neutral-300 text-sm">DigiCard Campaigns</p>
-                </div>
-            </div>
-        </div>
+    <section class="statement section">
+      <div class="shell"><p class="eyebrow reveal">MY APPROACH</p><p class="statement-copy">
+        <span class="word">GOOD</span> <span class="word">DESIGN</span> <span class="word muted">ISN’T</span> <span class="word">JUST</span> <span class="word">POLISHED.</span> <span class="word">IT</span> <span class="word muted">SHOULD</span> <span class="word">WORK</span> <span class="word accent-word">CLEARLY.</span>
+      </p></div>
     </section>
 
-    <!-- Experience Timeline -->
-    <section class="py-24 px-6 sm:px-12 max-w-4xl mx-auto" id="experience">
-        <div class="reveal text-center mb-16">
-            <h2 class="font-syne text-4xl sm:text-5xl font-bold text-white mb-4">Career Journey</h2>
-            <p class="text-neutral-400">My professional trajectory over the years.</p>
+    <section class="section about" id="about">
+      <div class="shell about-grid">
+        <div class="about-title reveal"><span class="section-index">03</span><p class="eyebrow">ABOUT</p><h2>Designer by craft.<br><em>Builder</em> by mindset.</h2></div>
+        <div class="about-content">
+          <p class="lead reveal">I’m a Mumbai-based UI/UX and Frontend Designer with 6+ years of experience across websites, web applications and digital interfaces.</p>
+          <p class="reveal">My frontend background helps me think beyond static screens. I consider responsiveness, implementation constraints and how design decisions translate into real interfaces.</p>
+          <div class="capability-list">
+            <div class="capability reveal"><span>01</span><div><h3>UI / UX Design</h3><p>Figma, responsive layouts, interface systems and prototyping.</p></div><b>↗</b></div>
+            <div class="capability reveal"><span>02</span><div><h3>Frontend Understanding</h3><p>HTML, CSS, Bootstrap, JavaScript, React and Next.js basics.</p></div><b>↗</b></div>
+            <div class="capability reveal"><span>03</span><div><h3>Visual & AI Workflow</h3><p>Photoshop, Illustrator and AI-assisted ideation/content workflows.</p></div><b>↗</b></div>
+          </div>
         </div>
-
-        <div class="relative border-l border-white/10 ml-4 md:ml-0 md:border-none space-y-12">
-            <!-- Central Line for Desktop -->
-            <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-white/10 -translate-x-1/2"></div>
-
-            <!-- Softlabs -->
-            <div class="reveal relative md:flex md:justify-between md:items-center w-full">
-                <div class="absolute w-4 h-4 rounded-full bg-brand -left-[25px] md:left-1/2 md:-translate-x-1/2 ring-4 ring-[#050505]"></div>
-                <div class="md:w-[45%] md:text-right md:pr-10 pb-4 md:pb-0 pl-6 md:pl-0">
-                    <span class="text-brand text-sm font-bold tracking-wider uppercase mb-1 block">Aug 2024 – Present</span>
-                    <h3 class="font-syne text-2xl font-bold text-white">Frontend Designer</h3>
-                    <p class="text-neutral-400 font-medium">Softlabs Group Pvt. Ltd.</p>
-                </div>
-                <div class="md:w-[45%] pl-6 md:pl-10">
-                    <div class="bg-neutral-900/50 backdrop-blur-sm border border-white/5 p-6 rounded-2xl bento-card">
-                        <p class="text-sm text-neutral-300 mb-2">• Solo Web Designer: Completely redesigned the official corporate website.</p>
-                        <p class="text-sm text-neutral-300">• Implement fully responsive, modern layouts using HTML, CSS, Bootstrap, and jQuery.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Thinkinno -->
-            <div class="reveal relative md:flex md:justify-between md:items-center md:flex-row-reverse w-full">
-                <div class="absolute w-4 h-4 rounded-full bg-accent -left-[25px] md:left-1/2 md:-translate-x-1/2 ring-4 ring-[#050505]"></div>
-                <div class="md:w-[45%] md:text-left md:pl-10 pb-4 md:pb-0 pl-6 md:pl-0">
-                    <span class="text-accent text-sm font-bold tracking-wider uppercase mb-1 block">Sep 2020 – Jun 2024</span>
-                    <h3 class="font-syne text-2xl font-bold text-white">UI/UX Designer</h3>
-                    <p class="text-neutral-400 font-medium">Thinkinno Technologies</p>
-                </div>
-                <div class="md:w-[45%] pl-6 md:pr-10 md:pl-0 text-left md:text-right">
-                    <div class="bg-neutral-900/50 backdrop-blur-sm border border-white/5 p-6 rounded-2xl bento-card text-left">
-                        <p class="text-sm text-neutral-300 mb-2">• Led end-to-end UI design for the LeadVictor product ecosystem.</p>
-                        <p class="text-sm text-neutral-300">• Executed complete branding assets, intuitive mobile app interfaces, and marketing collateral.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- i9 Innovations -->
-            <div class="reveal relative md:flex md:justify-between md:items-center w-full">
-                <div class="absolute w-4 h-4 rounded-full border-2 border-white bg-[#050505] -left-[25px] md:left-1/2 md:-translate-x-1/2 ring-4 ring-[#050505]"></div>
-                <div class="md:w-[45%] md:text-right md:pr-10 pb-4 md:pb-0 pl-6 md:pl-0">
-                    <span class="text-neutral-500 text-sm font-bold tracking-wider uppercase mb-1 block">May 2019 – Aug 2020</span>
-                    <h3 class="font-syne text-2xl font-bold text-white">Web Designer</h3>
-                    <p class="text-neutral-400 font-medium">i9 Innovations</p>
-                </div>
-                <div class="md:w-[45%] pl-6 md:pl-10">
-                    <div class="bg-neutral-900/50 backdrop-blur-sm border border-white/5 p-6 rounded-2xl bento-card">
-                        <p class="text-sm text-neutral-300 mb-2">• Customized web templates and redesigned existing interfaces to drastically improve UX.</p>
-                        <p class="text-sm text-neutral-300">• Designed diverse graphic assets including invitation cards, brochures, and visiting cards.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Pyramidinfosource -->
-            <div class="reveal relative md:flex md:justify-between md:items-center md:flex-row-reverse w-full">
-                <div class="absolute w-4 h-4 rounded-full border-2 border-white bg-[#050505] -left-[25px] md:left-1/2 md:-translate-x-1/2 ring-4 ring-[#050505]"></div>
-                <div class="md:w-[45%] md:text-left md:pl-10 pb-4 md:pb-0 pl-6 md:pl-0">
-                    <span class="text-neutral-500 text-sm font-bold tracking-wider uppercase mb-1 block">Nov 2017 – Apr 2019</span>
-                    <h3 class="font-syne text-2xl font-bold text-white">Web Designer</h3>
-                    <p class="text-neutral-400 font-medium">Pyramidinfosource</p>
-                </div>
-                <div class="md:w-[45%] pl-6 md:pr-10 md:pl-0 text-left md:text-right">
-                    <div class="bg-neutral-900/50 backdrop-blur-sm border border-white/5 p-6 rounded-2xl bento-card text-left">
-                        <p class="text-sm text-neutral-300 mb-2">• Spearheaded creation of websites utilizing HTML5, CSS3, and Bootstrap frameworks.</p>
-                        <p class="text-sm text-neutral-300">• Focused exclusively on building fluid responsive layouts and robust front-end components.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
     </section>
 
-    <!-- Footer / Contact -->
-    <footer class="py-24 border-t border-white/10 mt-12 bg-neutral-950 relative overflow-hidden" id="contact">
-        <!-- Subtle Footer Glow -->
-        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80vw] h-[50vh] bg-brand/20 blur-[150px] pointer-events-none rounded-t-full"></div>
-        
-        <div class="container mx-auto px-6 text-center relative z-10">
-            <h2 class="font-syne text-5xl sm:text-7xl font-bold text-white mb-6 tracking-tight reveal">Let's build something <br/><span class="text-gradient">extraordinary.</span></h2>
-            
-            <a href="mailto:sheetalmalgaonkar.uiux@gmail.com" class="reveal inline-block text-xl sm:text-2xl font-medium text-neutral-300 hover:text-white transition-colors border-b border-brand/50 hover:border-brand pb-1 mb-12">
-                sheetalmalgaonkar.uiux@gmail.com
-            </a>
-            
-            <div class="reveal flex flex-col md:flex-row justify-between items-center text-sm text-neutral-500 max-w-5xl mx-auto pt-8 border-t border-white/10">
-                <p>&copy; 2026 Sheetal Malgaonkar. All rights reserved.</p>
-                <p class="mt-2 md:mt-0">Designed & Handcoded with <i class="fa-solid fa-heart text-brand text-xs mx-1"></i></p>
-            </div>
+    <section class="section experience" id="experience">
+      <div class="shell">
+        <div class="section-head reveal"><div><span class="section-index">04</span><p class="eyebrow">EXPERIENCE</p></div><h2>A path from web design to product-minded UI/UX.</h2></div>
+        <div class="exp-list">
+          <div class="exp-row reveal"><span class="year">2024 — NOW</span><div><h3>Frontend Designer</h3><p>Softlabs Group Pvt. Ltd.</p></div><span class="location">MUMBAI</span><b>↗</b></div>
+          <div class="exp-row reveal"><span class="year">2020 — 2024</span><div><h3>UI/UX Designer</h3><p>Thinkinno Technologies Pvt. Ltd.</p></div><span class="location">MUMBAI</span><b>↗</b></div>
+          <div class="exp-row reveal"><span class="year">2018 — 2020</span><div><h3>Web Designer</h3><p>i9 Innovations</p></div><span class="location">MUMBAI</span><b>↗</b></div>
+          <div class="exp-row reveal"><span class="year">2018</span><div><h3>Web Designer</h3><p>Pyramidinfosource</p></div><span class="location">MUMBAI</span><b>↗</b></div>
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <!-- Custom Lightbox Modal -->
-    <div id="lightbox" class="fixed inset-0 z-[100] bg-black/90 backdrop-blur-md hidden items-center justify-center opacity-0 transition-opacity duration-300">
-        <button onclick="closeModal()" class="absolute top-6 right-6 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-brand transition-colors z-10">
-            <i class="fa-solid fa-xmark text-xl"></i>
-        </button>
-        <div class="relative w-full max-w-5xl max-h-[90vh] p-4 flex flex-col items-center justify-center">
-            <img id="lightbox-img" src="" alt="Enlarged View" class="max-w-full max-h-[80vh] rounded-xl shadow-2xl object-contain border border-white/10">
-            <h4 id="lightbox-title" class="font-syne text-white text-xl mt-6 font-bold"></h4>
+    <section class="section visual" id="visual">
+      <div class="shell">
+        <div class="section-head reveal"><div><span class="section-index">05</span><p class="eyebrow">VISUAL WORK</p></div><h2>Selected graphic and print work from earlier roles.</h2></div>
+        <div class="visual-grid">
+          <button class="visual-card reveal" data-lightbox="assets/img/brochure.jpg" data-title="Brand Brochure"><img src="assets/img/brochure.jpg" alt="Brand brochure"><span>Brand Brochure ↗</span></button>
+          <button class="visual-card reveal" data-lightbox="assets/img/booklet-frontBack.png" data-title="Leadvictor Booklet"><img src="assets/img/booklet-frontBack.png" alt="Leadvictor booklet"><span>Leadvictor Booklet ↗</span></button>
+          <button class="visual-card reveal" data-lightbox="assets/img/standee-thinkinno.png" data-title="Exhibition Standee"><img src="assets/img/standee-thinkinno.png" alt="Exhibition standee"><span>Exhibition Standee ↗</span></button>
+          <button class="visual-card reveal" data-lightbox="assets/img/digicard-socialmedia.png" data-title="Social Media Kit"><img src="assets/img/digicard-socialmedia.png" alt="Social media design"><span>Social Media Kit ↗</span></button>
         </div>
-    </div>
+      </div>
+    </section>
 
-    <!-- Interactive Scripts -->
-    <script>
-        // Mobile Menu Toggle
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        }
-        document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
+    <section class="section contact" id="contact">
+      <div class="contact-orb" data-parallax="0.1"></div>
+      <div class="shell contact-inner">
+        <p class="eyebrow reveal">06 · LET’S WORK TOGETHER</p>
+        <h2 class="reveal">Have a product that needs<br><em>a clearer experience?</em></h2>
+        <a class="contact-link magnetic reveal" href="mailto:sheetal22493@gmail.com"><span>START A CONVERSATION</span><b>↗</b></a>
+        <div class="contact-foot reveal"><p>Open to UI/UX and Product Design opportunities in Mumbai.</p><div><a href="https://www.linkedin.com/in/sheetal-malgaonkar" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="mailto:sheetal22493@gmail.com">Email ↗</a></div></div>
+      </div>
+    </section>
+  </main>
 
-        // Lightbox Modal Logic
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        const lightboxTitle = document.getElementById('lightbox-title');
+  <footer><div class="shell footer-inner"><span>© <span id="year"></span> SHEETAL MALGAONKAR</span><span>UI/UX · FRONTEND · MUMBAI</span><a href="#top">BACK TO TOP ↑</a></div></footer>
 
-        function openModal(src, title, fallbackUrl) {
-            lightboxImg.src = src;
-            lightboxImg.onerror = function() { this.src = fallbackUrl; };
-            lightboxTitle.innerText = title;
-            lightbox.classList.remove('hidden');
-            // Small delay to allow display block to apply before changing opacity
-            setTimeout(() => {
-                lightbox.classList.remove('opacity-0');
-            }, 10);
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
-        }
-
-        function closeModal() {
-            lightbox.classList.add('opacity-0');
-            setTimeout(() => {
-                lightbox.classList.add('hidden');
-                lightboxImg.src = '';
-            }, 300);
-            document.body.style.overflow = 'auto'; // Restore scrolling
-        }
-
-        // Close modal on escape key or clicking outside
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
-                closeModal();
-            }
-        });
-        lightbox.addEventListener('click', (e) => {
-            if (e.target === lightbox) closeModal();
-        });
-
-        // Intersection Observer for Scroll Animations
-        const revealElements = document.querySelectorAll('.reveal');
-        
-        const revealCallback = function(entries, observer) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                    observer.unobserve(entry.target); // Stop observing once revealed
-                }
-            });
-        };
-
-        const revealOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px"
-        };
-
-        const observer = new IntersectionObserver(revealCallback, revealOptions);
-        
-        revealElements.forEach(el => observer.observe(el));
-    </script>
+  <div class="lightbox" aria-hidden="true"><button class="lightbox-close">×</button><figure><img src="" alt=""><figcaption></figcaption></figure></div>
+  <script src="assets/app.js"></script>
 </body>
 </html>
