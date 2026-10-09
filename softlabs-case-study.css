@@ -33,3 +33,9 @@ footer{padding:25px 0;background:#08080b;border-top:1px solid var(--line);font:4
   h1{font-size:clamp(48px,14vw,74px)}.kicker{display:block;margin-bottom:52px}.kicker span{display:block;margin-bottom:6px}.hero-summary{margin-top:40px}.hero-stats div{padding:18px}.section{padding:90px 0}.project-shot{padding-top:50px}.browser-media{min-height:300px}.browser-media img{min-height:300px;object-fit:cover}.info-grid{grid-template-columns:1fr}.decision{padding:65px 0}.decision-visual{min-height:430px;padding:18px}.mock-hero{padding:25px 10px}.mock-hero h4{font-size:42px}.mock-actions{flex-direction:column}.mega{padding:28px 20px}.mega-links{grid-template-columns:1fr}.lifecycle-demo{padding:25px 18px}.life-head p{font-size:24px}.next-link{font-size:42px}.foot{flex-direction:column;gap:8px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.motion-ready .reveal{opacity:1;transform:none;transition:none}}
+.project-meta{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.project-meta div{padding:20px 22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:92px}
+.project-meta span{display:block;font:500 8px "DM Mono";letter-spacing:.12em;color:var(--muted);margin-bottom:8px}
+.project-meta strong{display:block;font-size:14px;font-weight:600;line-height:1.35}
+@media(max-width:900px){.project-meta{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.project-meta{grid-template-columns:1fr}}
