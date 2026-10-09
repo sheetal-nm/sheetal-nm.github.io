@@ -17,3 +17,9 @@ footer{padding:25px 0;background:#08080b;border-top:1px solid var(--line);font:4
 .reveal{opacity:1}.motion-ready .reveal{opacity:0;transform:translateY(24px);transition:.75s}.motion-ready .reveal.visible{opacity:1;transform:none}
 @media(max-width:900px){.navin{grid-template-columns:1fr auto}.navin span{display:none}.summary,.two,.outgrid{grid-template-columns:1fr;gap:45px}.stats{grid-template-columns:repeat(2,1fr)}.sticky{position:relative;top:auto}.head{grid-template-columns:1fr;gap:35px}.cards,.timeline{grid-template-columns:1fr}}
 @media(max-width:600px){.shell{width:calc(100% - 28px)}.navin{height:66px}h1{font-size:clamp(48px,14vw,74px)}.kicker{display:block}.kicker span{display:block;margin-bottom:6px}.summary{margin-top:40px}.section{padding:90px 0}.media{min-height:300px}.next a{font-size:40px}.foot{flex-direction:column;gap:8px}}
+.project-meta{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.project-meta div{padding:20px 22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:92px}
+.project-meta span{display:block;font:500 8px "DM Mono";letter-spacing:.12em;color:var(--muted);margin-bottom:8px}
+.project-meta strong{display:block;font-size:14px;font-weight:600;line-height:1.35}
+@media(max-width:900px){.project-meta{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.project-meta{grid-template-columns:1fr}}
